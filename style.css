@@ -1,0 +1,92 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    background: linear-gradient(270deg, #0a2e38, #000000, #0a2e38);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#clock {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Ensure it doesn't exceed the viewport width */
+    max-width: 600px; /* Limit maximum width for larger screens */
+}
+
+.time, .date {
+    text-shadow: 
+        0 0 10px #0affff,
+        0 0 20px #0affff,
+        0 0 40px #0affff,
+        0 0 80px #0affff;
+    background: linear-gradient(90deg, #00f5d4, #00fff9, #00f5d4);
+    background-size: 200% 200%;
+    
+    /* Standard property */
+    background-clip: text;
+    
+    /* Vendor prefixes for compatibility */
+    -webkit-background-clip: text; /* For WebKit-based browsers (Chrome, Safari) */
+    -moz-background-clip: text;    /* For Mozilla Firefox */
+    -ms-background-clip: text;     /* For older versions of Internet Explorer */
+    -o-background-clip: text;      /* For Opera */
+
+    /* Transparent text color */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Neon text animation */
+    animation: neonText 2s linear infinite;
+}
+
+.time {
+    font-size: calc(4vw + 20px); /* Responsive font size */
+    letter-spacing: 0.05em;
+    padding: 5px 0;
+}
+
+.date {
+    font-size: calc(2vw + 10px); /* Responsive font size */
+    letter-spacing: 0.1em;
+    padding-top: 20px;
+}
+
+@keyframes neonText {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .time {
+        font-size: calc(6vw + 10px); /* Larger font for smaller screens */
+    }
+
+    .date {
+        font-size: calc(3vw + 8px); /* Adjust date font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .time {
+        font-size: calc(8vw + 5px); /* Even larger font for very small screens */
+    }
+
+    .date {
+        font-size: calc(4vw + 5px); /* Adjust date font size */
+    }
+}
